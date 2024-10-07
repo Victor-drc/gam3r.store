@@ -1,6 +1,6 @@
 "use client";
 import { IconCreditCard, IconShoppingCart } from "@tabler/icons-react";
-import { Currency, Product } from "@/core";
+import { Currency, Product } from "@gstore/core";
 // import useCart from '@/data/hooks/useCart'
 import useInstallment from "@/data/hooks/useInstallment";
 import { useRouter } from "next/navigation";
@@ -19,12 +19,12 @@ export default function BannerCompra(props: BannerCompraProps) {
     <div className="flex">
       <div className="flex flex-col border-r border-zinc-500 pr-5">
         <div className="line-through text-zinc-400">
-          de R$ {product?.basePrice}
+          de {Currency.format(product?.basePrice)}
         </div>
         <div className="text-2xl font-semibold">
           <span className="text-base text-zinc-300">por</span>{" "}
           <span className="text-emerald-500">
-            R$ {product?.promotionalPrice}
+            {Currency.format(product?.promotionalPrice)}
           </span>{" "}
           <span className="text-base text-zinc-300">à vista</span>
         </div>

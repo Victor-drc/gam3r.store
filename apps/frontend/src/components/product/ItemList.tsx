@@ -2,7 +2,7 @@
 // import useProduct from '@/data/hooks/useProduct'
 import ItemProduct from "./ItemProduct";
 import ItemNotFind from "./ItemNotFind";
-import products from "@/core/constants/products";
+import products from "@gstore/core/src/constants/products";
 
 export default function ItemList() {
   // const { products } = useProduct()
