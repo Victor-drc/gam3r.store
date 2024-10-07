@@ -1,11 +1,11 @@
+"use client";
 import Logo from "../shared/Logo";
 import CartIcon from "../shared/CartIcon";
 import Link from "next/link";
-// import useCart from "@/data/hooks/useCart";
+import useCart from "@/data/hooks/useCart";
 
 export default function Header() {
-  const itemQuantity = 0;
-  // const { itemQuantity } = useCart()
+  const { itemsQuantity } = useCart();
   return (
     <div
       className="flex flex-col h-20"
@@ -17,8 +17,8 @@ export default function Header() {
       <div className="flex-1 container flex flex-col justify-center">
         <div className="flex justify-between items-center">
           <Logo />
-          <Link href="/checkout/carrinho">
-            <CartIcon itemQuantity={itemQuantity} />
+          <Link href="/checkout/cart">
+            <CartIcon itemQuantity={itemsQuantity} />
           </Link>
         </div>
       </div>

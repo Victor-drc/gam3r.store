@@ -1,7 +1,7 @@
 GET http://localhost:3005/api/order
 
 ###
-GET http://localhost:3005/api/order/1
+GET http://localhost:3005/api/order/3
 
 ###
 DELETE http://localhost:3005/api/order/29

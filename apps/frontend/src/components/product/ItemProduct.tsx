@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { IconShoppingCartPlus } from "@tabler/icons-react";
 import ReviewRate from "../shared/ReviewRate";
+import useCart from "@/data/hooks/useCart";
+import useInstallment from "@/data/hooks/useInstallment";
 
 export interface ItemProductProps {
   product: Product;
@@ -11,6 +13,8 @@ export interface ItemProductProps {
 
 export default function ItemProduct(props: ItemProductProps) {
   const { product } = props;
+  const { addItem } = useCart();
+  const installment = useInstallment(product.basePrice);
   return (
     <Link
       href={`/product/${props.product.id}`}
@@ -40,10 +44,12 @@ export default function ItemProduct(props: ItemProductProps) {
           <span className="text-xl font-semibold text-emerald-400">
             por {Currency.format(product.promotionalPrice)}
           </span>
-          {/* <span className="text-zinc-400 text-xs">
-            até {props.installment.installmentQuantity} de{" "}
-            {Currency.format(props.installment.installmentCost)}
-          </span> */}
+          {
+            <span className="text-zinc-400 text-xs">
+              até {installment.installmentQuantity} de{" "}
+              {Currency.format(installment.installmentCost)}
+            </span>
+          }
         </div>
         <button
           className="flex justify-center items-center gap-2 h-8 bg-violet-700 hover:border-2 border-emerald-400"
@@ -52,7 +58,7 @@ export default function ItemProduct(props: ItemProductProps) {
             console.log(
               `Em construção, quando pronto irá adicionar o produto: ${product.name} ao carrinho!`
             );
-            // addItemToCart(props.product);
+            addItem(props.product);
           }}
         >
           <IconShoppingCartPlus size={20} />
