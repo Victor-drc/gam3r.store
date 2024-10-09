@@ -1,71 +1,66 @@
-// import { createNativeStackNavigator } from '@react-navigation/native-stack'
-// import { NavigationContainer, DarkTheme } from '@react-navigation/native'
-// import { ProvedorCarrinho } from '@/src/data/contexts/ContextoCarrinho'
-// import { ProvedorPagamento } from '@/src/data/contexts/ContextoPagamento'
-// import { ProvedorProdutos } from '@/src/data/contexts/ContextoProdutos'
-// import Pagamento from './Pagamento'
-// import ProdutoDetalhes from './ProdutoDetalhes'
-// import Tabs from '../tabs'
-// import UltimasCompras from './UltimasCompras'
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer, DarkTheme } from "@react-navigation/native";
+import { CartProvider } from "@/src/data/context/CartContext";
+import { PaymentProvider } from "@/src/data/context/PaymentContext";
+import { ProductProvider } from "@/src/data/context/ProductContext";
+import Payment from "./Payment";
+import ProductDetails from "./ProductDetails";
+import Tabs from "../tabs";
+import LastPurchases from "./LastPurchases";
 
-import { View, Text } from "react-native";
-
-// const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 export default function StackPage() {
   return (
-    <View style={{ flex: 1, justifyContent: "center" }}>
-      <Text>Stack</Text>
-    </View>
-    // <ProvedorProdutos>
-    //     <ProvedorCarrinho>
-    //         <ProvedorPagamento>
-    //             <NavigationContainer theme={DarkTheme}>
-    //                 <Stack.Navigator initialRouteName="Tabs">
-    //                     <Stack.Screen
-    //                         name="Tabs"
-    //                         component={Tabs}
-    //                         options={{
-    //                             headerShown: false,
-    //                         }}
-    //                     />
-    //                     <Stack.Screen
-    //                         name="ProdutoDetalhes"
-    //                         component={ProdutoDetalhes}
-    //                         options={{
-    //                             title: 'Detalhes do Produto',
-    //                             headerBackTitle: 'Voltar',
-    //                             headerShown: true,
-    //                             headerStyle: { backgroundColor: '#0D001E' },
-    //                             headerTintColor: '#FFF',
-    //                         }}
-    //                     />
-    //                     <Stack.Screen
-    //                         name="Pagamento"
-    //                         component={Pagamento}
-    //                         options={{
-    //                             title: 'Detalhes do Pagamento',
-    //                             headerBackTitle: 'Voltar',
-    //                             headerShown: true,
-    //                             headerStyle: { backgroundColor: '#0D001E' },
-    //                             headerTintColor: '#FFF',
-    //                         }}
-    //                     />
-    //                     <Stack.Screen
-    //                         name="UltimasCompras"
-    //                         component={UltimasCompras}
-    //                         options={{
-    //                             title: 'Últimas Compras',
-    //                             headerBackTitle: 'Voltar',
-    //                             headerShown: true,
-    //                             headerStyle: { backgroundColor: '#0D001E' },
-    //                             headerTintColor: '#FFF',
-    //                         }}
-    //                     />
-    //                 </Stack.Navigator>
-    //             </NavigationContainer>
-    //         </ProvedorPagamento>
-    //     </ProvedorCarrinho>
-    // </ProvedorProdutos>
+    <ProductProvider>
+      <CartProvider>
+        <PaymentProvider>
+          <NavigationContainer theme={DarkTheme}>
+            <Stack.Navigator initialRouteName="Tabs">
+              <Stack.Screen
+                name="Tabs"
+                component={Tabs}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="ProductDetails"
+                component={ProductDetails}
+                options={{
+                  title: "Detalhes do Produto",
+                  headerBackTitle: "Voltar",
+                  headerShown: true,
+                  headerStyle: { backgroundColor: "#0D001E" },
+                  headerTintColor: "#FFF",
+                }}
+              />
+              <Stack.Screen
+                name="Payment"
+                component={Payment}
+                options={{
+                  title: "Detalhes do Pagamento",
+                  headerBackTitle: "Voltar",
+                  headerShown: true,
+                  headerStyle: { backgroundColor: "#0D001E" },
+                  headerTintColor: "#FFF",
+                }}
+              />
+              <Stack.Screen
+                name="LastPurchases"
+                component={LastPurchases}
+                options={{
+                  title: "Últimas Compras",
+                  headerBackTitle: "Voltar",
+                  headerShown: true,
+                  headerStyle: { backgroundColor: "#0D001E" },
+                  headerTintColor: "#FFF",
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PaymentProvider>
+      </CartProvider>
+    </ProductProvider>
   );
 }
