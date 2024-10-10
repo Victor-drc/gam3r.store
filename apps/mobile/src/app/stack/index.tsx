@@ -7,6 +7,7 @@ import Payment from "./Payment";
 import ProductDetails from "./ProductDetails";
 import Tabs from "../tabs";
 import LastPurchases from "./LastPurchases";
+import { StatusBar } from "expo-status-bar";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,7 @@ export default function StackPage() {
           </NavigationContainer>
         </PaymentProvider>
       </CartProvider>
+      <StatusBar style="light" />
     </ProductProvider>
   );
 }
