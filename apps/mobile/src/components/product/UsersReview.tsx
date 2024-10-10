@@ -1,5 +1,5 @@
 import { Product } from "@gstore/core";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import Colors from "@/src/data/constants/Colors";
 import RateReview from "../shared/ReviewRate";
 
@@ -47,14 +47,20 @@ export default function UsersReview(props: UsersReviewProps) {
             {props.product.rate.toFixed(1).replace(".", ",")}
           </Text>
           <RateReview rate={props.product.rate} size={18} />
-          <Text>(198 Comentários)</Text>
+          <Text style={styles.textComents}>(198 Comentários)</Text>
         </View>
         <View>
-          <Text>Desempenho excelente.</Text>
-          <Text>Custo benefício ótimo.</Text>
-          <Text>Gráfico dedicado.</Text>
+          <Text style={styles.textComents}>Desempenho excelente.</Text>
+          <Text style={styles.textComents}>Custo benefício ótimo.</Text>
+          <Text style={styles.textComents}>Gráfico dedicado.</Text>
         </View>
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  textComents: {
+    color: "#ddd",
+  },
+});

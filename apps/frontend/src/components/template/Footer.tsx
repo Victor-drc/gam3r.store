@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="flex gap-1.5">
               <span>Feito com</span>
               <span>❤️</span>
-              <span>em {new Date().getFullYear()}</span>
+              <span>por Victor Ferreira em {new Date().getFullYear()}</span>
             </div>
             <span className="hidden md:inline-block">-</span>
             <span>Todos os direitos reservados</span>
