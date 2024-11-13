@@ -2,7 +2,7 @@
 
 ###
 
-<p align="left">An e-commerce web/mobile app built using modern approach and architecture for full stack development.<br>What I learn building this project:<br>- React/Next.Js to build components and entire front-end;<br>- React Native for mobile app;<br>- Tailwind CSS: used tailwind CSS classes to style components;<br>- Typescript, Prisma as ORM, PostgreSQL for DB;<br>- Turborepo for easily build everything.</p>
+<p align="left">An e-commerce web/mobile app built using modern approach and architecture for full stack development.<br>What I learn building this project:<br>- React/Next.Js to build components and entire front-end;<br>- React Native for mobile app;<br>- Tailwind CSS: used tailwind CSS classes to style components;<br>- Typescript, NestJs, Prisma as ORM, PostgreSQL for DB;<br>- Turborepo for easily build everything.</p>
 
 ###
 
